@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
+        .bar {
+            height: 40px;
+            line-height: 40px;
+            background: black;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            float:left;
+            width: 100px;
+            text-align: center;
+            position:relative;
+        }
+        a {
+           text-decoration:none;
+           color:white; 
+        }
+        .bar li ul{
+			background:white;
+			position:absolute;
+			left:0px;
+			top:40px;
+			display:none;
+		}
+        .bar li ul a {
+            color:#333; 
+            float:none;
+			display: inline-block;
+		}
+        .bar li ul li {
+            float: none;
+		}        
+        .bar li ul li ul {
+			left:100px;
+			top:0px;
+		}
+        .bar li.active {
+            background: red;
+        }
+        .bar li.active>ul{
+			display:block;
+		}
+    </style>
+</head>
+<body>
+    <div id="bar" class="bar">
+        <div>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li>
+                    <a href="#">博客</a>
+                    <ul>
+                        <li><a href="#">网易博客</a></li>
+                        <li>
+                            <a href="#">新浪博客</a>
+                            <ul>
+                                <li><a href="#">新浪大博客</a></li>
+                                <li><a href="#">新浪小博客</a></li>
+                                <li><a href="#">新浪男博客</a></li>
+                                <li><a href="#">新浪女博客</a></li>                            
+                            </ul>
+                        </li>
+                        <li><a href="#">腾讯博客</a></li>
+                        <li><a href="#">大博客</a></li>                   
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">论坛</a>
+	    			<ul>
+	    				<li><a href="#">网易论坛</a></li>
+	    				<li><a href="#">新浪论坛</a></li>
+	    				<li><a href="#">腾讯论坛</a></li>
+	    				<li><a href="#">大论坛</a></li>
+	    			</ul>                
+                </li>
+                <li>
+                    <a href="#">商城</a>
+	    			<ul>
+	    				<li><a href="#">网易商城</a></li>
+	    				<li><a href="#">新浪商城</a></li>
+	    				<li><a href="#">腾讯商城</a></li>
+	    				<li><a href="#">大商城</a></li>
+	    			</ul>                
+                </li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+		//获取 所有的li
+		var lis = document.getElementById('bar').getElementsByTagName('li');
+		//遍历li 绑定事件
+		for (var i = 0; i < lis.length; i ++) {
+			lis[i].onmouseover = function(){
+				this.className = "active";
+			}
+			lis[i].onmouseout = function(){
+				this.className = "";
+			}
+		}
+	</script>
+</body>
+</html>
